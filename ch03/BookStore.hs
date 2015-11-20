@@ -28,3 +28,25 @@ bookID          (Book id title authors) = id
 bookTitle       (Book id title authors) = title
 bookAuthors     (Book id title authors) = authors
 
+nicerID         (Book id _     _      ) = id
+nicerTitle      (Book _  title _      ) = title
+nicerAuthors    (Book _  _     authors) = authors
+
+
+-- Better way create my accessors
+data Customer = Customer {
+      customerID      :: CustomerID
+    , customerName    :: String
+    , customerAddress :: Address
+    deriving (Show)
+
+customer1 = Customer 1234 "A. Kampjes"
+            ["Somewhere",
+             "New Zealand"]
+
+customer2 = Customer {
+              customerID = 1234,
+              customerAddress = ["Somewhere",
+                                 "New Zealand"],
+              customerName = "A. Kampjes"
+            }
